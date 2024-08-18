@@ -14,6 +14,9 @@ import {ForbiddenComponent} from "./forbidden/forbidden.component";
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {FormsModule} from "@angular/forms";
+import { UserRegisterComponent } from './user-register/user-register.component';
+import {MatInputModule} from "@angular/material/input";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import {FormsModule} from "@angular/forms";
     ContentComponent,
     ForbiddenComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import {FormsModule} from "@angular/forms";
     MatIconModule,
     MatListModule,
     MatSidenavModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
