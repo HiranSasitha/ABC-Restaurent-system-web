@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ForbiddenComponent} from "./forbidden/forbidden.component";
 import {LoginComponent} from "./login/login.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
 
 const routes: Routes = [
-  {path:"dashboard",component:ForbiddenComponent},
+  {path:"dashboard",component:DashboardComponent},
   {path:"test",component:LoginComponent},
 ];
 
