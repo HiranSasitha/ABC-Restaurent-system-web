@@ -1,0 +1,29 @@
+<mat-drawer-container class="example-container" autosize >
+    <mat-drawer [opened]="opened" mode="side">
+      <mat-list>
+          <mat-list-item class="item mb-2" [routerLinkActive]="['active']" (click)="closeSidebar()" >
+            <mat-icon color="primary" >dashboard</mat-icon>
+        <a class="aa" style="cursor: pointer" routerLink="/dashboard">DashBoard</a>
+          </mat-list-item>
+
+        <mat-list-item class="item" [routerLinkActive]="['active']" (click)="closeSidebar()" >
+          <mat-icon color="primary" ></mat-icon>
+          <a class="aa" style="cursor: pointer" routerLink="/test">test</a>
+        </mat-list-item>
+
+      </mat-list>
+
+    </mat-drawer>
+
+    <mat-drawer-content>
+      <div class="content">
+        <router-outlet></router-outlet>
+
+      </div>
+    </mat-drawer-content>
+
+
+
+  </mat-drawer-container>
+
+
