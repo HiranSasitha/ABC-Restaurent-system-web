@@ -1,0 +1,60 @@
+.example-container {
+    position: fixed;
+    height: 89%;
+    min-height: 89%;
+    width: 100%;
+    min-width: 100%;
+    background-color: transparent;
+  }
+
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .example-sidenav {
+    padding: 20px;
+  }
+  .active{
+    background-color: aqua;
+    border-radius: 30px;
+  }
+  .mat-drawer{
+    width: 200px;
+    min-width: 200px;
+    padding: 16px;
+  }
+  .aa{
+    color: darkblue;
+    text-decoration: none;
+
+  }
+
+  .item{
+    transition: transform 0.3s ease
+  }
+
+  .item:hover{
+    transform: scale(1.1);
+  }
+
+  .aa:hover{
+    font-weight: bold;
+  }
+
+  .active aa{
+    font-weight: bold;
+  }
+
+.example-container {
+  height: 100vh;
+}
+
+mat-drawer {
+  background-color:powderblue;
+}
+
+
+

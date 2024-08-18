@@ -1,0 +1,29 @@
+<div class="card text-bg-dark" style="border: none;">
+  <img [src]="images[imageIndex]" class="card-img" alt="..." style="height: 250px">
+  <div class="card-img-overlay">
+<!--    <h5 class="card-title">Card title</h5>-->
+<!--    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--    <p class="card-text"><small>Last updated 3 mins ago</small></p>-->
+  </div>
+  <button class="carousel-control-prev" (click)="nextImage()">
+    <span class="carousel-control-icon">&#10094;</span>
+  </button>
+  <button class="carousel-control-next" (click)="previousImage()" >
+    <span class="carousel-control-icon">&#10095;</span>
+  </button>
+</div>
+
+<div>
+  <div class="row g-0 bg-body-secondary position-relative">
+    <div class="col-md-6 mb-md-0 p-md-4">
+      <img [src]="images1[imageIndexs]" class="w-100" alt="..." style="height: 300px">
+    </div>
+    <div class="col-md-6 p-4 ps-md-0">
+      <h2 class="mt-0">Welcome to</h2>
+      <h1 class="mt-0" style="color: purple">ABC Restaurant</h1>
+      <p>“At ABC Restaurant, we’re passionate about serving you the finest dishes made with love and the freshest ingredients. From our kitchen to your table, every meal is crafted to delight your senses and create memorable dining experiences. Enjoy a taste of excellence with every bite.”</p>
+      <a href="#" class="stretched-link">Login</a>
+    </div>
+  </div>
+
+</div>
