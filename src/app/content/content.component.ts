@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuService } from 'src/app/service/menu.service';
+import {UserService} from "../service/user.service";
 
 @Component({
   selector: 'app-content',
@@ -8,7 +9,7 @@ import { MenuService } from 'src/app/service/menu.service';
 })
 export class ContentComponent {
   opened = true;
-  constructor(private menuService:MenuService) {
+  constructor(private menuService:MenuService,public userService:UserService) {
     this.menuService.isOpened.subscribe(data =>{
       this.opened = data;
     })

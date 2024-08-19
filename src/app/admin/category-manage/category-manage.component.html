@@ -1,0 +1,78 @@
+
+  <div class="pt-3 px-4" style="background-color: ghostwhite">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex gap-2 align-items-center flex-fill">
+        <i class="ph ph-squares-four" style="font-size: 40px; "></i>
+        <h4 class="m-0">Category</h4>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="box">
+    <!--  <h5>Configurations</h5>-->
+    <div class="page-container px-4">
+      <div class="page-body">
+              <div class="d-flex justify-content-end mb-5 mt-4" >
+                <button class="btn btn-primary" (click)="createCategory()">
+                  Create a New Category <i class="ph ph-plus ms-1"></i>
+                </button>
+              </div>
+        <div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="table-wrapper ">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-table table-striped">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+<!--        <td mat-cell *matCellDef="let element">{{ element.isActive }}</td>-->
+        <td mat-cell *matCellDef="let element">
+<!--          <h4>Example Badge: <span class="badge bg-info">Info</span></h4>-->
+<!--          <h4><span class="badge badge-pill bg-success" >Deactivate</span></h4>-->
+      <h4 *ngIf="element.isActive"> <span class="badge badge-pill bg-success"><span >Activate</span> </span></h4>
+          <h4 *ngIf="!element.isActive"> <span class="badge badge-pill bg-danger"><span >Deactivate</span> </span></h4>
+        </td>
+
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-icon-only" (click)="update(element)"><i class="ph ph-pencil-line"></i></button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="cursor" (click)="sidebarShow(row)">
+      </tr>
+    </table>
+
+    <!-- Paginator -->
+    <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[pageSize]" [showFirstLastButtons]="true" [length]="totalSize"
+                   [pageIndex]="currentPage" (page)="handlePage($event)">
+    </mat-paginator>
+  </div>

@@ -16,9 +16,20 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {FormsModule} from "@angular/forms";
 import { UserRegisterComponent } from './user-register/user-register.component';
 import {MatInputModule} from "@angular/material/input";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { PicCardComponent } from './pic-card/pic-card.component';
 import { PicCardVComponent } from './pic-card-v/pic-card-v.component';
+import { CategoryManageComponent } from './admin/category-manage/category-manage.component';
+import { CategoryCreateComponent } from './admin/category-manage/category-create/category-create.component';
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {AuthGuard} from "./auth/auth.guard";
+import {AuthInterceptor} from "./auth/auth.interceptor";
+import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
+import {MatSort, MatSortModule} from "@angular/material/sort";
+import {MatTableModule} from "@angular/material/table";
+import { UpdateCategoryComponent } from './admin/category-manage/update-category/update-category.component';
+
+
 
 @NgModule({
   declarations: [
@@ -30,7 +41,10 @@ import { PicCardVComponent } from './pic-card-v/pic-card-v.component';
     DashboardComponent,
     UserRegisterComponent,
     PicCardComponent,
-    PicCardVComponent
+    PicCardVComponent,
+    CategoryManageComponent,
+    CategoryCreateComponent,
+    UpdateCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +56,23 @@ import { PicCardVComponent } from './pic-card-v/pic-card-v.component';
     MatSidenavModule,
     FormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+
+
+
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
