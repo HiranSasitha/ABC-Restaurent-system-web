@@ -3,7 +3,7 @@ import {NgForm} from "@angular/forms";
 import {UserAuthService} from "../../../service/user-auth.service";
 import Swal from "sweetalert2";
 import {CategoryService} from "../../../service/admin/category.service";
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-category-create',
@@ -14,7 +14,9 @@ export class CategoryCreateComponent {
   isActive = false;
   userName:any
 
-  constructor(private userAuth:UserAuthService,private categoryService:CategoryService,private dialog:MatDialog) {
+  constructor(private userAuth:UserAuthService,private categoryService:CategoryService,
+              private dialog:MatDialog,
+              public dialogRef: MatDialogRef<CategoryCreateComponent>) {
     this.userName = userAuth.getUser()?.userName;
   }
 
@@ -64,7 +66,7 @@ this.categoryService.createCategory(data).subscribe(
   (response:any)=>{
     if(response.msg == "Success created") {
       Swal.fire('Success', response.msg, 'success');
-      this.dialog.closeAll();
+      this.dialogRef.close('refresh');
     }else {
       Swal.fire("Failed", response.msg, 'warning');
     }

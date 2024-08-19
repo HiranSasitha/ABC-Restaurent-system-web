@@ -27,6 +27,9 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
 import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
 import {MatSort, MatSortModule} from "@angular/material/sort";
 import {MatTableModule} from "@angular/material/table";
+import { UpdateCategoryComponent } from './admin/category-manage/update-category/update-category.component';
+
+
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import {MatTableModule} from "@angular/material/table";
     PicCardComponent,
     PicCardVComponent,
     CategoryManageComponent,
-    CategoryCreateComponent
+    CategoryCreateComponent,
+    UpdateCategoryComponent
   ],
   imports: [
     BrowserModule,

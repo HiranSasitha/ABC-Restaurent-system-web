@@ -19,9 +19,19 @@ export class CategoryService {
 
   public createCategory(data:any){
 
-
     return this.httpClient.post<any>(this.BASE_URL+"/create",data);
-    // const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    // return this.httpClient.post(this.BASE_URL + "/authenticate", loginData, { headers, responseType: 'text' });
+
+  }
+
+  public updateCategory(data:any,id:number){
+
+    return this.httpClient.put<any>(`${this.BASE_URL}/update/${id}`, data);
+
+  }
+
+  public getAll(){
+
+    return this.httpClient.get<any>(this.BASE_URL+"/get-all");
+
   }
 }
