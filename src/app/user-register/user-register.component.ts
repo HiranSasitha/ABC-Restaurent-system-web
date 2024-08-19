@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {UserService} from "../service/user.service";
 import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-register',
@@ -10,7 +11,7 @@ import Swal from "sweetalert2";
 })
 export class UserRegisterComponent {
 
-  constructor(private userService:UserService) {
+  constructor(private userService:UserService,private route:Router) {
   }
 
   onContactNumberInput(event: Event): void {
@@ -39,8 +40,10 @@ export class UserRegisterComponent {
         (response:any)=>{
           if(response.msg == "Success Register") {
             Swal.fire('Success', 'User  Register successfully', 'success');
+            this.route.navigate(["/login"])
           }else {
             Swal.fire("Failed", response.msg, 'warning');
+
           }
         },
         (error:any) => {

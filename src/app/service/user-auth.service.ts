@@ -24,6 +24,15 @@ return JSON.parse(<string>localStorage.getItem("roles"));
     return <string>localStorage.getItem("jwttoken");
   }
 
+
+  public setUser(user: any): void {
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+
+  public getUser(): any {
+    return JSON.parse(<string>localStorage.getItem("user"));
+  }
+
   public clear(){
     localStorage.clear();
   }

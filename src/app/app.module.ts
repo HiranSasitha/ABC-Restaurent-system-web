@@ -17,6 +17,8 @@ import {FormsModule} from "@angular/forms";
 import { UserRegisterComponent } from './user-register/user-register.component';
 import {MatInputModule} from "@angular/material/input";
 import {HttpClientModule} from "@angular/common/http";
+import { PicCardComponent } from './pic-card/pic-card.component';
+import { PicCardVComponent } from './pic-card-v/pic-card-v.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {HttpClientModule} from "@angular/common/http";
     ForbiddenComponent,
     LoginComponent,
     DashboardComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    PicCardComponent,
+    PicCardVComponent
   ],
   imports: [
     BrowserModule,
