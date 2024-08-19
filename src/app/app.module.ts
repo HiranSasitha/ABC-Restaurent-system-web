@@ -13,6 +13,12 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {ForbiddenComponent} from "./forbidden/forbidden.component";
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {FormsModule} from "@angular/forms";
+import { UserRegisterComponent } from './user-register/user-register.component';
+import {MatInputModule} from "@angular/material/input";
+import {HttpClientModule} from "@angular/common/http";
+import { PicCardComponent } from './pic-card/pic-card.component';
+import { PicCardVComponent } from './pic-card-v/pic-card-v.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ContentComponent,
     ForbiddenComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserRegisterComponent,
+    PicCardComponent,
+    PicCardVComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +39,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatSlideToggleModule,
     MatIconModule,
     MatListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    FormsModule,
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

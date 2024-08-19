@@ -1,1 +1,38 @@
-<p>login works!</p>
+<div class="a">
+  <div class="container mb-5">
+    <div class="card text-center" style="padding: 20px; color:green;">
+      <h1 class="font-weight-bold">Welcome to ABC Restaurant</h1>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <div class="card" style="padding: 20px;">
+      <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <!-- formmodule module -->
+        <input
+          type="text"
+          ngModel
+          name="userName"
+          id="userName"
+          placeholder="User Name"
+          class="form-control mb-3"
+        />
+        <input
+          type="text"
+          ngModel
+          name="password"
+          id="Password"
+          placeholder="Password"
+          class="form-control mb-3"
+        />
+        <input
+          type="submit"
+          value="Login"
+          class="btn btn-outline-primary form-control rounded-2"
+        />
+      </form>
+
+     <h4 class="mt-3 text-center" style="cursor: pointer" routerLink="/register">Create Account</h4>
+    </div>
+
+  </div>
+</div>

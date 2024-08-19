@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {MenuService} from "../service/menu.service";
+import {UserAuthService} from "../service/user-auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,21 @@ import {MenuService} from "../service/menu.service";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(private menuService:MenuService) {
+  constructor(private menuService: MenuService, public userAuth: UserAuthService, private router: Router) {
   }
-  toggleMenu(){
+
+  toggleMenu() {
     this.menuService.toggle();
   }
+
+  public isLogin() {
+    return this.userAuth.isLogin();
+  }
+
+  public logOut() {
+    this.userAuth.clear();
+    this.router.navigate(["/login"]);
+  }
+
+
 }
