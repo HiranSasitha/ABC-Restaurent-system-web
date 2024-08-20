@@ -28,6 +28,9 @@ import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
 import {MatSort, MatSortModule} from "@angular/material/sort";
 import {MatTableModule} from "@angular/material/table";
 import { UpdateCategoryComponent } from './admin/category-manage/update-category/update-category.component';
+import { ItemManageComponent } from './admin/item-manage/item-manage.component';
+import { ItemCreateComponent } from './admin/item-manage/item-create/item-create.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 
@@ -44,7 +47,9 @@ import { UpdateCategoryComponent } from './admin/category-manage/update-category
     PicCardVComponent,
     CategoryManageComponent,
     CategoryCreateComponent,
-    UpdateCategoryComponent
+    UpdateCategoryComponent,
+    ItemManageComponent,
+    ItemCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,7 @@ import { UpdateCategoryComponent } from './admin/category-manage/update-category
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-
+    MatSelectModule,
 
 
   ],
