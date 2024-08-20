@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-between">
     <div class="d-flex gap-2 align-items-center flex-fill">
       <i class="ph ph-squares-four" style="font-size: 40px; "></i>
-      <h4 class="m-0">Create-Item</h4>
+      <h4 class="m-0">Update-Item</h4>
     </div>
   </div>
 </div>
@@ -10,11 +10,11 @@
 
   <div class="container mt-5">
     <div class="card" style="padding: 20px;">
-      <form #itemForm="ngForm" (ngSubmit)="createItem(itemForm)">
+      <form #itemForm="ngForm" (ngSubmit)="UpdateItem(itemForm)">
         <!-- Input with name attribute -->
         <input
           type="text"
-          ngModel
+          [(ngModel)]="item.name"
           name="name"
           id="name"
           placeholder="Item Name"
@@ -28,7 +28,7 @@
         <!-- Input with name attribute -->
         <input
           type="text"
-          ngModel
+          [(ngModel)]="item.description"
           name="description"
           id="description"
           placeholder="description"
@@ -38,7 +38,7 @@
 
         <input
           type="text"
-          ngModel
+          [(ngModel)]="item.originalPrice"
           name="originalPrice"
           id="originalPrice"
           placeholder="originalPrice"
@@ -52,7 +52,7 @@
 
         <input
           type="text"
-          ngModel
+          [(ngModel)]="item.sellingPrice"
           name="sellingPrice"
           id="sellingPrice"
           placeholder="sellingPrice"
@@ -93,12 +93,12 @@
           <div class="d-flex flex-column">
             <p>You can activate or deactivate Category .</p>
           </div>
-          <mat-slide-toggle [(ngModel)]="isActive" name="isActive" id="isActive" (change)="toggleActiveClass($event)"></mat-slide-toggle>
+          <mat-slide-toggle [(ngModel)]="item.isActive" name="isActive" id="isActive" (change)="toggleActiveClass($event)"></mat-slide-toggle>
         </div>
 
         <input
           type="submit"
-          value="Create"
+          value="Update"
           class="btn btn-outline-primary form-control rounded-2"
         />
       </form>
@@ -108,3 +108,4 @@
 
   </div>
 </div>
+

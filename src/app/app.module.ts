@@ -31,6 +31,7 @@ import { UpdateCategoryComponent } from './admin/category-manage/update-category
 import { ItemManageComponent } from './admin/item-manage/item-manage.component';
 import { ItemCreateComponent } from './admin/item-manage/item-create/item-create.component';
 import {MatSelectModule} from "@angular/material/select";
+import { ItemUpdateComponent } from './admin/item-manage/item-update/item-update.component';
 
 
 
@@ -49,7 +50,8 @@ import {MatSelectModule} from "@angular/material/select";
     CategoryCreateComponent,
     UpdateCategoryComponent,
     ItemManageComponent,
-    ItemCreateComponent
+    ItemCreateComponent,
+    ItemUpdateComponent
   ],
   imports: [
     BrowserModule,

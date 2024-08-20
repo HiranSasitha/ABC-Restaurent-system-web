@@ -22,4 +22,16 @@ export class ItemService {
     return this.httpClient.post<any>(this.BASE_URL+"/create",data);
 
   }
+
+  public getAll(){
+
+    return this.httpClient.get<any>(this.BASE_URL+"/get-all");
+
+  }
+
+  getAllBranchByItem(id:any) {
+    const url = `${this.BASE_URL}/get-all-branch-by-item/${id}`;
+
+    return this.httpClient.get<any>(url);
+  }
 }
