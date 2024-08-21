@@ -35,6 +35,8 @@ import { ItemUpdateComponent } from './admin/item-manage/item-update/item-update
 import { BranchManageComponent } from './admin/branch-manage/branch-manage.component';
 import { BranchCreateComponent } from './admin/branch-manage/branch-create/branch-create.component';
 
+import { BranchUpdateComponent } from './admin/branch-manage/branch-update/branch-update.component';
+
 
 
 @NgModule({
@@ -55,7 +57,8 @@ import { BranchCreateComponent } from './admin/branch-manage/branch-create/branc
     ItemCreateComponent,
     ItemUpdateComponent,
     BranchManageComponent,
-    BranchCreateComponent
+    BranchCreateComponent,
+    BranchUpdateComponent
   ],
   imports: [
     BrowserModule,
