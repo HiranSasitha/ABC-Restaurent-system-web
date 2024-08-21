@@ -40,4 +40,10 @@ export class ItemService {
 
     return this.httpClient.get<any>(url);
   }
+
+  getAllItemByBranch(id:any) {
+    const url = `${this.BASE_URL}/get-all-branch-by-item/${id}`;
+
+    return this.httpClient.get<any>(url);
+  }
 }

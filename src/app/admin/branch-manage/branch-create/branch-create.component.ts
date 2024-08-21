@@ -50,8 +50,8 @@ export class BranchCreateComponent implements OnInit{
       };
 
       Swal.fire({
-        title: 'Create Category',
-        text: 'Are you sure, you want to Create this Item ?',
+        title: 'Create Branch',
+        text: 'Are you sure, you want to Create this Branch ?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',

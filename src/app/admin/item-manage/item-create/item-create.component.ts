@@ -62,7 +62,7 @@ export class ItemCreateComponent implements OnInit{
       };
 
       Swal.fire({
-        title: 'Create Category',
+        title: 'Create Item',
         text: 'Are you sure, you want to Create this Item ?',
         icon: 'warning',
         showCancelButton: true,
