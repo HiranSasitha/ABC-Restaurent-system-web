@@ -32,6 +32,8 @@ import { ItemManageComponent } from './admin/item-manage/item-manage.component';
 import { ItemCreateComponent } from './admin/item-manage/item-create/item-create.component';
 import {MatSelectModule} from "@angular/material/select";
 import { ItemUpdateComponent } from './admin/item-manage/item-update/item-update.component';
+import { BranchManageComponent } from './admin/branch-manage/branch-manage.component';
+import { BranchCreateComponent } from './admin/branch-manage/branch-create/branch-create.component';
 
 
 
@@ -51,7 +53,9 @@ import { ItemUpdateComponent } from './admin/item-manage/item-update/item-update
     UpdateCategoryComponent,
     ItemManageComponent,
     ItemCreateComponent,
-    ItemUpdateComponent
+    ItemUpdateComponent,
+    BranchManageComponent,
+    BranchCreateComponent
   ],
   imports: [
     BrowserModule,

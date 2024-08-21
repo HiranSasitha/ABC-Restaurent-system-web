@@ -1,62 +1,50 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForm} from "@angular/forms";
-import Swal from "sweetalert2";
-import {CategoryService} from "../../../service/admin/category.service";
-import {BranchService} from "../../../service/admin/branch.service";
-import {MatDialogRef} from "@angular/material/dialog";
-import {ItemService} from "../../../service/admin/item.service";
 import {UserAuthService} from "../../../service/user-auth.service";
+import {CategoryService} from "../../../service/admin/category.service";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {NgForm} from "@angular/forms";
+import {ItemService} from "../../../service/admin/item.service";
+import Swal from "sweetalert2";
+import {BranchService} from "../../../service/admin/branch.service";
 
 @Component({
-  selector: 'app-item-create',
-  templateUrl: './item-create.component.html',
-  styleUrls: ['./item-create.component.scss']
+  selector: 'app-branch-create',
+  templateUrl: './branch-create.component.html',
+  styleUrls: ['./branch-create.component.scss']
 })
-export class ItemCreateComponent implements OnInit{
+export class BranchCreateComponent implements OnInit{
+
   isActive = false;
   userName:any
-  category:any
-  selectedCategoryId:any
-  branch:any
-  selectedBranchIds: number[] = [];
+  selectedItemIds: number[] = [];
   item:any
-
-  constructor(private categoryService:CategoryService,
-              private branchService:BranchService,public dialogRef: MatDialogRef<ItemCreateComponent>,
+  constructor(private userAuth:UserAuthService,private categoryService:CategoryService,
+              private dialog:MatDialog,
               private itemService:ItemService,
-              private userAuth:UserAuthService) {
-
+              private branchService:BranchService,
+              public dialogRef: MatDialogRef<BranchCreateComponent>) {
     this.userName = userAuth.getUser()?.userName;
   }
 
   ngOnInit(): void {
-    this.getAllCategory();
-    this.getAllBranch();
-  }
+        this.getAllItem();
+    }
 
   toggleActiveClass(event: any) {
     this.isActive = event.checked;
   }
 
-  numberInput(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    input.value = input.value.replace(/\D/g, '');
-  }
-
-  createItem(form: NgForm) {
+  createBranch(form: NgForm) {
     if (form.valid) {
       const formData = form.value;
 
-      console.log(this.selectedBranchIds);
+      console.log(this.selectedItemIds);
 
       const data = {
         name: formData.name,
-        description: formData.description,
-        originalPrice:formData.originalPrice,
-        sellingPrice:formData.sellingPrice,
-        categoryId:this.selectedCategoryId,
+       location: formData.location,
         isActive: this.isActive,
-        branchId:this.selectedBranchIds,
+        itemId:this.selectedItemIds,
         createdUser: this.userName,
 
       };
@@ -81,7 +69,7 @@ export class ItemCreateComponent implements OnInit{
       }).then((result)=>{
 
         if(result.isConfirmed){
-         this.saveItem(data);
+          this.save(data);
         }
       })
 
@@ -90,27 +78,19 @@ export class ItemCreateComponent implements OnInit{
     }
   }
 
-  getAllCategory(){
+  getAllItem(){
 
-    this.categoryService.getAll().subscribe(
+    this.itemService.getAll().subscribe(
       (data:any)=>{
-        this.category = data;
+        this.item = data;
 
       }
-    )
-  }
-  getAllBranch(){
-
-    this.branchService.getAll().subscribe(
-      (data:any)=>{
-        this.branch = data;
-
-      }
-    )
+    );
   }
 
-  saveItem(data:any){
-    this.itemService.createItem(data).subscribe(
+  private save(data:any) {
+
+    this.branchService.createBranch(data).subscribe(
       (response:any)=>{
         if(response.msg == "Success created") {
           Swal.fire('Success', response.msg, 'success');

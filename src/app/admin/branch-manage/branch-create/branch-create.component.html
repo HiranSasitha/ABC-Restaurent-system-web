@@ -1,0 +1,73 @@
+<div class="pt-3 px-4" style="background-color: ghostwhite">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex gap-2 align-items-center flex-fill">
+      <i class="ph ph-squares-four" style="font-size: 40px; "></i>
+      <h4 class="m-0">Create-Branch</h4>
+    </div>
+  </div>
+</div>
+
+<div class="a">
+
+  <div class="container mt-5">
+    <div class="card" style="padding: 20px;">
+      <form #branchForm="ngForm" (ngSubmit)="createBranch(branchForm)">
+        <!-- Input with name attribute -->
+        <input
+          type="text"
+          ngModel
+          name="name"
+          id="name"
+          placeholder="Branch Name"
+          class="form-control mb-3"
+          required
+        />
+        <mat-error *ngIf="branchForm.submitted && !branchForm.controls['name']?.valid" class="text-danger">
+          Branch Name is required.
+        </mat-error>
+
+        <!-- Input with name attribute -->
+        <input
+          type="text"
+          ngModel
+          name="location"
+          id="location"
+          placeholder="Branch Location"
+          class="form-control mb-3 mt-2"
+        />
+
+        <mat-error *ngIf="branchForm.submitted && !branchForm.controls['location']?.valid" class="text-danger">
+          Branch Location is required.
+        </mat-error>
+
+        <!-- Branch Selector -->
+        <mat-form-field class="flex-fill" appearance="outline">
+          <mat-label>Select Items</mat-label>
+          <mat-select name="itemIds" [(ngModel)]="selectedItemIds" [multiple]="true">
+            <mat-option *ngFor="let it of item" [value]="it.id">
+              {{ it.name}} ({{it.category.name}})
+
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <div class="check-card p-3 br-16 border border-primary d-flex justify-content-between align-items-center gap-2 mb-4 bg-body-secondary">
+          <div class="d-flex flex-column">
+            <p>You can activate or deactivate Category .</p>
+          </div>
+          <mat-slide-toggle [(ngModel)]="isActive" name="isActive" id="isActive" (change)="toggleActiveClass($event)"></mat-slide-toggle>
+        </div>
+
+        <input
+          type="submit"
+          value="Create"
+          class="btn btn-outline-primary form-control rounded-2"
+        />
+      </form>
+
+
+    </div>
+
+  </div>
+</div>
