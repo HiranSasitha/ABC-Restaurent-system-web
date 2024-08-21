@@ -23,6 +23,12 @@ export class ItemService {
 
   }
 
+  public updateItem(data:any,id:any){
+
+    return this.httpClient.put<any>(`${this.BASE_URL}/update/${id}`, data);
+
+  }
+
   public getAll(){
 
     return this.httpClient.get<any>(this.BASE_URL+"/get-all");
