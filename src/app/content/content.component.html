@@ -7,8 +7,13 @@
           </mat-list-item>
 
         <mat-list-item *ngIf="userService.roleEqual(['ROLE_ADMIN'])" class="item" [routerLinkActive]="['active']" (click)="closeSidebar()" >
-          <mat-icon color="primary" >lunch_dining</mat-icon>
+          <mat-icon color="primary" >category</mat-icon>
           <a class="aa" style="cursor: pointer" routerLink="/category">Category</a>
+        </mat-list-item>
+
+        <mat-list-item *ngIf="userService.roleEqual(['ROLE_ADMIN'])" class="item" [routerLinkActive]="['active']" (click)="closeSidebar()" >
+          <mat-icon color="primary" >menu_book</mat-icon>
+          <a class="aa" style="cursor: pointer" routerLink="/item">Item</a>
         </mat-list-item>
 
       </mat-list>

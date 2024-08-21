@@ -1,0 +1,111 @@
+<div class="pt-3 px-4" style="background-color: ghostwhite">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex gap-2 align-items-center flex-fill">
+      <i class="ph ph-squares-four" style="font-size: 40px; "></i>
+      <h4 class="m-0">Update-Item</h4>
+    </div>
+  </div>
+</div>
+<div class="a">
+
+  <div class="container mt-5">
+    <div class="card" style="padding: 20px;">
+      <form #itemForm="ngForm" (ngSubmit)="UpdateItem(itemForm)">
+        <!-- Input with name attribute -->
+        <input
+          type="text"
+          [(ngModel)]="item.name"
+          name="name"
+          id="name"
+          placeholder="Item Name"
+          class="form-control mb-3"
+          required
+        />
+        <mat-error *ngIf="itemForm.submitted && !itemForm.controls['name']?.valid" class="text-danger">
+          Item Name is required.
+        </mat-error>
+
+        <!-- Input with name attribute -->
+        <input
+          type="text"
+          [(ngModel)]="item.description"
+          name="description"
+          id="description"
+          placeholder="description"
+          class="form-control mb-3 mt-2"
+
+        />
+
+        <input
+          type="text"
+          [(ngModel)]="item.originalPrice"
+          name="originalPrice"
+          id="originalPrice"
+          placeholder="originalPrice"
+          class="form-control mb-3"
+          required
+          (input)="numberInput($event)"
+        />
+        <mat-error *ngIf="itemForm.submitted && !itemForm.controls['originalPrice']?.valid" class="text-danger">
+          originalPrice is required.
+        </mat-error>
+
+        <input
+          type="text"
+          [(ngModel)]="item.sellingPrice"
+          name="sellingPrice"
+          id="sellingPrice"
+          placeholder="sellingPrice"
+          class="form-control mb-3"
+          required
+          (input)="numberInput($event)"
+        />
+        <mat-error *ngIf="itemForm.submitted && !itemForm.controls['sellingPrice']?.valid" class="text-danger">
+          sellingPrice is required.
+        </mat-error>
+
+        <div class="d-flex" style="gap: 16px;">
+          <!-- Category Selector -->
+          <mat-form-field class="flex-fill" appearance="outline">
+            <mat-label>Select a Category</mat-label>
+            <mat-select [(ngModel)]="selectedCategoryId" name="categoryId">
+              <mat-option *ngFor="let cat of category" [value]="cat.id">
+                {{ cat.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Branch Selector -->
+          <mat-form-field class="flex-fill" appearance="outline">
+            <mat-label>Select Branches</mat-label>
+            <mat-select name="branchIds" [(ngModel)]="selectedBranchIds" [multiple]="true">
+              <mat-option *ngFor="let bra of branch" [value]="bra.id">
+                {{ bra.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+
+
+        <div class="check-card p-3 br-16 border border-primary d-flex justify-content-between align-items-center gap-2 mb-4 bg-body-secondary">
+          <div class="d-flex flex-column">
+            <p>You can activate or deactivate Category .</p>
+          </div>
+          <mat-slide-toggle [(ngModel)]="item.isActive" name="isActive" id="isActive" (change)="toggleActiveClass($event)"></mat-slide-toggle>
+        </div>
+
+        <input
+          type="submit"
+          value="Update"
+          class="btn btn-outline-primary form-control rounded-2"
+        />
+      </form>
+
+
+    </div>
+
+  </div>
+</div>
+
