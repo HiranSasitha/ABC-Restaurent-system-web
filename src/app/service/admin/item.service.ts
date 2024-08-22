@@ -42,7 +42,7 @@ export class ItemService {
   }
 
   getAllItemByBranch(id:any) {
-    const url = `${this.BASE_URL}/get-all-branch-by-item/${id}`;
+    const url = `${this.BASE_URL}/get-all-item-by-branch/${id}`;
 
     return this.httpClient.get<any>(url);
   }

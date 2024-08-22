@@ -39,7 +39,7 @@ export class BranchManageComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'refresh') {
-        //this.getAll();  // Reload the categories
+        this.getAllBranch();  // Reload the categories
       }
     });
   }

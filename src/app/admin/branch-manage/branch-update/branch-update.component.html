@@ -55,14 +55,14 @@
 
         <div class="check-card p-3 br-16 border border-primary d-flex justify-content-between align-items-center gap-2 mb-4 bg-body-secondary">
           <div class="d-flex flex-column">
-            <p>You can activate or deactivate Category .</p>
+            <p>You can activate or deactivate Branch .</p>
           </div>
           <mat-slide-toggle [(ngModel)]="branch.isActive" name="isActive" id="isActive" (change)="toggleActiveClass($event)"></mat-slide-toggle>
         </div>
 
         <input
           type="submit"
-          value="Create"
+          value="Update"
           class="btn btn-outline-primary form-control rounded-2"
         />
       </form>
