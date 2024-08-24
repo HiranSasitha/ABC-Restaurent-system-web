@@ -21,6 +21,11 @@
           <a class="aa" style="cursor: pointer" routerLink="/branch">Branch</a>
         </mat-list-item>
 
+        <mat-list-item *ngIf="userService.roleEqual(['ROLE_ADMIN'])" class="item" [routerLinkActive]="['active']" (click)="closeSidebar()" >
+          <mat-icon color="primary" >group</mat-icon>
+          <a class="aa" style="cursor: pointer" routerLink="/user">User Manage</a>
+        </mat-list-item>
+
       </mat-list>
 
     </mat-drawer>

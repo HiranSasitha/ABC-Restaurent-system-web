@@ -36,6 +36,8 @@ import { BranchManageComponent } from './admin/branch-manage/branch-manage.compo
 import { BranchCreateComponent } from './admin/branch-manage/branch-create/branch-create.component';
 
 import { BranchUpdateComponent } from './admin/branch-manage/branch-update/branch-update.component';
+import {UserManageComponent} from "./admin/user-manage/user-manage.component";
+import {UserCreateComponent} from "./admin/user-manage/user-create/user-create.component";
 
 
 
@@ -58,7 +60,9 @@ import { BranchUpdateComponent } from './admin/branch-manage/branch-update/branc
     ItemUpdateComponent,
     BranchManageComponent,
     BranchCreateComponent,
-    BranchUpdateComponent
+    BranchUpdateComponent,
+    UserManageComponent,
+    UserCreateComponent
   ],
   imports: [
     BrowserModule,
