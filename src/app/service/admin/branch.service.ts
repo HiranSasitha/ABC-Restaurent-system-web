@@ -24,6 +24,12 @@ export class BranchService {
 
   }
 
+  public getAllActive(){
+
+    return this.httpClient.get<any>(this.BASE_URL+"/get-all-active");
+
+  }
+
   public createBranch(data:any){
 
     return this.httpClient.post<any>(this.BASE_URL+"/create",data);

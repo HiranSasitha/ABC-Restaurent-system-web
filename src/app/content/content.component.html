@@ -26,6 +26,11 @@
           <a class="aa" style="cursor: pointer" routerLink="/user">User Manage</a>
         </mat-list-item>
 
+        <mat-list-item *ngIf="isLogin()" class="item" [routerLinkActive]="['active']" (click)="closeSidebar()" >
+          <mat-icon color="primary" >dinner_dining</mat-icon>
+          <a class="aa" style="cursor: pointer" routerLink="/active-branch">Place Order</a>
+        </mat-list-item>
+
       </mat-list>
 
     </mat-drawer>
