@@ -46,4 +46,10 @@ export class ItemService {
 
     return this.httpClient.get<any>(url);
   }
+
+  getAllItemByBranchByItemByCategory(id:any,catId:any) {
+    const url = `${this.BASE_URL}/get-all-branch-by-item-by-category/${id}/${catId}`;
+
+    return this.httpClient.get<any>(url);
+  }
 }

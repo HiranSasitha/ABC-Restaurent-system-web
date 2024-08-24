@@ -38,8 +38,7 @@ export class CategoryComponent implements OnInit{
   }
 
   selectCategory(cat: any) {
-
-
-
+    this.router.navigate(['order-item'], { state: { selectedBranch:this.selectedBranch,selectedCategory: cat } });
   }
+
 }

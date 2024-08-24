@@ -41,6 +41,7 @@ import {UserCreateComponent} from "./admin/user-manage/user-create/user-create.c
 import { BranchComponent } from './place-order/branch/branch.component';
 import { CategoryComponent } from './place-order/category/category.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { ItemByBranchComponent } from './place-order/item-by-branch/item-by-branch.component';
 
 
 
@@ -67,7 +68,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     UserManageComponent,
     UserCreateComponent,
     BranchComponent,
-    CategoryComponent
+    CategoryComponent,
+    ItemByBranchComponent
   ],
   imports: [
     BrowserModule,
