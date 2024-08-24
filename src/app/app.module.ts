@@ -39,6 +39,8 @@ import { BranchUpdateComponent } from './admin/branch-manage/branch-update/branc
 import {UserManageComponent} from "./admin/user-manage/user-manage.component";
 import {UserCreateComponent} from "./admin/user-manage/user-create/user-create.component";
 import { BranchComponent } from './place-order/branch/branch.component';
+import { CategoryComponent } from './place-order/category/category.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 
@@ -64,7 +66,8 @@ import { BranchComponent } from './place-order/branch/branch.component';
     BranchUpdateComponent,
     UserManageComponent,
     UserCreateComponent,
-    BranchComponent
+    BranchComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ import { BranchComponent } from './place-order/branch/branch.component';
     MatPaginatorModule,
     MatSortModule,
     MatSelectModule,
+    MatTooltipModule,
 
 
   ],

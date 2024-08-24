@@ -10,6 +10,7 @@ import {ItemManageComponent} from "./admin/item-manage/item-manage.component";
 import {BranchManageComponent} from "./admin/branch-manage/branch-manage.component";
 import {UserManageComponent} from "./admin/user-manage/user-manage.component";
 import {BranchComponent} from "./place-order/branch/branch.component";
+import {CategoryComponent} from "./place-order/category/category.component";
 
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent},
@@ -20,6 +21,8 @@ const routes: Routes = [
   {path:"branch",component:BranchManageComponent,canActivate:[AuthGuard],data:{roles:['ROLE_ADMIN']}},
   {path:"user",component:UserManageComponent,canActivate:[AuthGuard],data:{roles:['ROLE_ADMIN']}},
   {path:"active-branch",component:BranchComponent,canActivate:[AuthGuard],data:{roles:['ROLE_ADMIN','ROLE_USER','ROLE_BRANCHADMIN']}},
+  {path:"order-category",component:CategoryComponent,canActivate:[AuthGuard],data:{roles:['ROLE_ADMIN','ROLE_USER','ROLE_BRANCHADMIN']}},
+
 
 
 ];

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BranchService} from "../../service/admin/branch.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-branch',
@@ -10,7 +11,7 @@ export class BranchComponent implements  OnInit{
 
   branch: any[] = [];
   showBranches: any[] = [];
-  constructor(private branchService:BranchService) {
+  constructor(private branchService:BranchService,private route:Router) {
   }
   ngOnInit(): void {
     this.getAllActiveBranches();
@@ -38,7 +39,7 @@ export class BranchComponent implements  OnInit{
 
 
   selectBranch(bra: any) {
-    
 
+    this.route.navigate(['/order-category'], { state: { selectedBranch: bra } });
   }
 }
