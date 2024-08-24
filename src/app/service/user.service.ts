@@ -54,4 +54,9 @@ export class UserService {
 
   }
 
+  updateUserStatus(status: any, id:any) {
+    return this.httpClient.post<any>(`${this.BASE_URL}/user/update/${id}/${status}`,"");
+
+  }
+
 }

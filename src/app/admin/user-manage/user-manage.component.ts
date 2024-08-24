@@ -7,6 +7,7 @@ import {UserCreateComponent} from "./user-create/user-create.component";
 import {MatTableDataSource} from "@angular/material/table";
 import {UserService} from "../../service/user.service";
 import {elementAt} from "rxjs";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-user-manage',
@@ -15,7 +16,7 @@ import {elementAt} from "rxjs";
 })
 export class UserManageComponent implements OnInit{
 
-  isOtpToggleActive = false;
+  isToggleActive = false;
   public pageSize = 5;
   public currentPage = 0;
   public totalSize = 0;
@@ -23,7 +24,7 @@ export class UserManageComponent implements OnInit{
   sidebarVisible = false;
   selectedRow: any;
   data:any;
-  displayedColumns: string[] = ['name', 'address','phoneNumber','branch','role','status'];
+  displayedColumns: string[] = ['name', 'address','phoneNumber','branch','role','status','action'];
   dataSourceCustomer = new MatTableDataSource<any>;
 
   constructor(private dialog: MatDialog,private categoryService:CategoryService,private branchService:BranchService
@@ -69,6 +70,7 @@ export class UserManageComponent implements OnInit{
 
     this.userService.getAll().subscribe(
       (data:any)=>{
+        this.data =[];
         this.data = data;
         this.totalSize = data.length;
         this.iterator()
@@ -79,4 +81,79 @@ export class UserManageComponent implements OnInit{
 
 
   protected readonly elementAt = elementAt;
+
+  toggleActiveClass(event: any, element: any) {
+    const isActive = element.isActive;
+
+    if (isActive === false) {
+      Swal.fire({
+        title: 'Update to the User Status',
+        text: 'Are you sure, you want to Deactivate the user?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, deactivate it!',
+        reverseButtons: true,
+        inputAttributes: {
+          autocapitalize: 'off'
+        },
+        customClass: {
+          container: 'alert-modal',
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.updateStatus(isActive, element.id);
+        } else {
+
+          element.isActive = true;
+        }
+      });
+    }
+
+    if (isActive === true) {
+      Swal.fire({
+        title: 'Update to the User Status',
+        text: 'Are you sure, you want to Activate the user?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, activate it!',
+        reverseButtons: true,
+        inputAttributes: {
+          autocapitalize: 'off'
+        },
+        customClass: {
+          container: 'alert-modal',
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.updateStatus(isActive, element.id);
+        } else {
+
+          element.isActive = false;
+        }
+      });
+    }
+  }
+
+
+  private updateStatus(isActive: boolean, id: number) {
+    this.userService.updateUserStatus(isActive, id).subscribe(
+      (response: any) => {
+        if (response.msg === "Successfully update user status") {
+          Swal.fire('Success', response.msg, 'success');
+          this.getAllUser();
+
+        } else {
+          Swal.fire("Failed", response.msg, 'warning');
+        }
+      },
+      (error: any) => {
+        console.error(error);
+        Swal.fire("Failed", "Something Wrong", 'warning');
+      }
+    );
+  }
 }
