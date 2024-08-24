@@ -48,6 +48,10 @@ export class UserService {
 
     return isMatch;
   }
+  public getAll(){
 
+    return this.httpClient.get<any>(this.BASE_URL+"/user/get-all");
+
+  }
 
 }

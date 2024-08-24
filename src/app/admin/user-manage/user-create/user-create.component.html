@@ -1,0 +1,154 @@
+<div class="pt-3 px-4" style="background-color: ghostwhite">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex gap-2 align-items-center flex-fill">
+      <i class="ph ph-squares-four" style="font-size: 40px; "></i>
+      <h4 class="m-0">Create a New User</h4>
+    </div>
+  </div>
+</div>
+
+<div class="  container mt-5">
+  <div class=" a card" style="padding: 20px; overflow: scroll ; max-height: 500px;">
+    <form #loginForm="ngForm" (ngSubmit)="submit(loginForm)" novalidate>
+      <!-- User Name -->
+      <input
+        type="text"
+        ngModel
+        name="userName"
+        id="userName"
+        placeholder="User Name"
+        class="form-control mb-3"
+        required
+      />
+      <mat-error *ngIf="loginForm.submitted && !loginForm.controls['userName']?.valid" class="text-danger">
+        User Name is required.
+      </mat-error>
+
+      <!-- First Name -->
+      <input
+        type="text"
+        ngModel
+        name="userFirstName"
+        id="userFirstName"
+        placeholder="First Name"
+        class="form-control mb-3 mt-3"
+        required
+      />
+      <mat-error *ngIf="loginForm.submitted && !loginForm.controls['userFirstName']?.valid" class="text-danger">
+        First Name is required.
+      </mat-error>
+
+      <!-- Last Name -->
+      <input
+        type="text"
+        ngModel
+        name="userLastName"
+        id="userLastName"
+        placeholder="Last Name"
+        class="form-control mb-3 mt-3"
+        required
+      />
+      <mat-error *ngIf="loginForm.submitted && !loginForm.controls['userLastName']?.valid" class="text-danger">
+        Last Name is required.
+      </mat-error>
+
+      <!-- Password -->
+      <input
+        type="password"
+        ngModel
+        name="password"
+        id="Password"
+        placeholder="Password"
+        class="form-control mb-3"
+        required
+        minlength="6"
+      />
+      <mat-error *ngIf="loginForm.submitted && !loginForm.controls['password']?.valid" class="text-danger">
+        Password is required and must be at least 6 characters long.
+      </mat-error>
+
+      <!-- Email -->
+      <input
+        type="email"
+        ngModel
+        name="email"
+        id="email"
+        placeholder="Email"
+        class="form-control mb-3 mt-3"
+        required
+      />
+      <mat-error *ngIf="loginForm.submitted && !loginForm.controls['email']?.valid" class="text-danger">
+        Enter a valid email address.
+      </mat-error>
+
+      <!-- Address -->
+      <input
+        type="text"
+        ngModel
+        name="address"
+        id="address"
+        placeholder="Address"
+        class="form-control mb-3 mt-3"
+        required
+      />
+      <mat-error *ngIf="loginForm.submitted && !loginForm.controls['address']?.valid" class="text-danger">
+        Address is required.
+      </mat-error>
+
+      <!-- Contact Number -->
+      <input
+        type="tel"
+        ngModel
+        name="contactNumb"
+        id="contactNumb"
+        placeholder="Contact Number"
+        class="form-control mb-3 mt-3"
+        required
+        pattern="^\d{10}$"
+        minlength="10"
+        maxlength="10"
+        (input)="onContactNumberInput($event)"
+      />
+      <mat-error *ngIf="loginForm.submitted && !loginForm.controls['contactNumb']?.valid" class="text-danger">
+        Contact Number must be exactly 10 digits.
+      </mat-error>
+      <mat-form-field class="flex-fill" appearance="outline">
+        <mat-label>Select a ROle</mat-label>
+        <mat-select [(ngModel)]="roleId" name="roleId">
+          <mat-option [value]="1">
+            Admin
+          </mat-option>
+
+          <mat-option [value]="2">
+           Branch Admin
+          </mat-option>
+
+          <mat-option [value]="3">
+           User
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+<br>
+
+      <mat-form-field *ngIf="roleId ===2" class="flex-fill" appearance="outline">
+        <mat-label>Select a Branch</mat-label>
+        <mat-select [(ngModel)]="branchId" name="branchId">
+          <mat-option *ngFor="let bra of branches" [value]="bra.id">
+            {{bra.name}} - {{bra.location}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <input
+        type="submit"
+        value="Create"
+        class="btn btn-outline-primary form-control rounded-2 mt-3"
+      />
+
+
+    </form>
+  </div>
+</div>
+
+

@@ -108,8 +108,8 @@ export class ItemUpdateComponent implements OnInit{
 
 
       Swal.fire({
-        title: 'Create Category',
-        text: 'Are you sure, you want to Update this Category ?',
+        title: 'Update Item',
+        text: 'Are you sure, you want to Update this tem ?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
@@ -173,4 +173,6 @@ export class ItemUpdateComponent implements OnInit{
       }
     )
   }
+
+
 }

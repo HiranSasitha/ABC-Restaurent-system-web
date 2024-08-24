@@ -23,4 +23,15 @@ export class BranchService {
     return this.httpClient.get<any>(this.BASE_URL+"/get-all");
 
   }
+
+  public createBranch(data:any){
+
+    return this.httpClient.post<any>(this.BASE_URL+"/create",data);
+
+  }
+
+  updateItem(data: any, id:any) {
+    return this.httpClient.put<any>(`${this.BASE_URL}/update/${id}`, data);
+
+  }
 }

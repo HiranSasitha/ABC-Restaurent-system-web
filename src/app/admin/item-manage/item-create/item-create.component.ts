@@ -19,6 +19,7 @@ export class ItemCreateComponent implements OnInit{
   selectedCategoryId:any
   branch:any
   selectedBranchIds: number[] = [];
+  item:any
 
   constructor(private categoryService:CategoryService,
               private branchService:BranchService,public dialogRef: MatDialogRef<ItemCreateComponent>,
@@ -61,7 +62,7 @@ export class ItemCreateComponent implements OnInit{
       };
 
       Swal.fire({
-        title: 'Create Category',
+        title: 'Create Item',
         text: 'Are you sure, you want to Create this Item ?',
         icon: 'warning',
         showCancelButton: true,
