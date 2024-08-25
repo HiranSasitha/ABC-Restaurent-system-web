@@ -43,6 +43,10 @@ export class ItemByBranchComponent implements OnInit{
     });
   }
 
-  
 
+  myCart() {
+
+    this.router.navigate(['my-cart'], { state: { selectedBranch:this.selectedBranch } });
+
+  }
 }

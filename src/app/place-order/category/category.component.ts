@@ -41,4 +41,9 @@ export class CategoryComponent implements OnInit{
     this.router.navigate(['order-item'], { state: { selectedBranch:this.selectedBranch,selectedCategory: cat } });
   }
 
+  myCart() {
+
+    this.router.navigate(['my-cart'], { state: { selectedBranch:this.selectedBranch } });
+
+  }
 }
