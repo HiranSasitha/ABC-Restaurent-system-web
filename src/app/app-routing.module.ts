@@ -14,6 +14,7 @@ import {CategoryComponent} from "./place-order/category/category.component";
 import {ItemByBranchComponent} from "./place-order/item-by-branch/item-by-branch.component";
 import {MyCartComponent} from "./place-order/my-cart/my-cart.component";
 import {BranchItemManageComponent} from "./branch-admin/branch-item-manage/branch-item-manage.component";
+import {UpdateOrderStatusComponent} from "./admin/update-order-status/update-order-status.component";
 
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:"order-item",component:ItemByBranchComponent,canActivate:[AuthGuard],data:{roles:['ROLE_ADMIN','ROLE_USER','ROLE_BRANCHADMIN']}},
   {path:"my-cart",component:MyCartComponent,canActivate:[AuthGuard],data:{roles:['ROLE_ADMIN','ROLE_USER','ROLE_BRANCHADMIN']}},
   {path:"branch-item-manage",component:BranchItemManageComponent,canActivate:[AuthGuard],data:{roles:['ROLE_BRANCHADMIN']}},
+  {path:"order-status",component:UpdateOrderStatusComponent,canActivate:[AuthGuard],data:{roles:['ROLE_ADMIN','ROLE_BRANCHADMIN']}},
 
 
 
