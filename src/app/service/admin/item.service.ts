@@ -52,4 +52,10 @@ export class ItemService {
 
     return this.httpClient.get<any>(url);
   }
+
+  updateBranchByItemStatus(branchId:any,itemId:any,isActive:boolean) {
+    const url = `${this.BASE_URL}/update-branch-item-status/${branchId}/${itemId}/${isActive}`;
+
+    return this.httpClient.put<any>(url,"");
+  }
 }

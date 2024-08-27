@@ -43,6 +43,7 @@ import { CategoryComponent } from './place-order/category/category.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { ItemByBranchComponent } from './place-order/item-by-branch/item-by-branch.component';
 import { MyCartComponent } from './place-order/my-cart/my-cart.component';
+import { BranchItemManageComponent } from './branch-admin/branch-item-manage/branch-item-manage.component';
 
 
 
@@ -71,7 +72,8 @@ import { MyCartComponent } from './place-order/my-cart/my-cart.component';
     BranchComponent,
     CategoryComponent,
     ItemByBranchComponent,
-    MyCartComponent
+    MyCartComponent,
+    BranchItemManageComponent
   ],
   imports: [
     BrowserModule,
