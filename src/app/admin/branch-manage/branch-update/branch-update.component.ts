@@ -73,7 +73,7 @@ export class BranchUpdateComponent implements OnInit {
       const data = await this.itemService.getAll().toPromise();
       this.item = data;
     } catch (error) {
-      console.error('Error fetching items:', error);
+      console.error('Error', error);
     }
   }
 
