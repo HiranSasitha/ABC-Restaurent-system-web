@@ -29,4 +29,8 @@ export class OrderService {
 
     return this.httpClient.put<any>(url,"");
   }
+
+  placeOrder(data:any) {
+    return this.httpClient.post<any>(`${this.BASE_URL}/create`,data);
+  }
 }

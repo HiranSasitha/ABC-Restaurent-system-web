@@ -45,6 +45,9 @@ import { ItemByBranchComponent } from './place-order/item-by-branch/item-by-bran
 import { MyCartComponent } from './place-order/my-cart/my-cart.component';
 import { BranchItemManageComponent } from './branch-admin/branch-item-manage/branch-item-manage.component';
 import { UpdateOrderStatusComponent } from './admin/update-order-status/update-order-status.component';
+import {CardAddComponent} from "./place-order/my-cart/card-add/card-add.component";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatCardModule} from "@angular/material/card";
 
 
 
@@ -75,7 +78,8 @@ import { UpdateOrderStatusComponent } from './admin/update-order-status/update-o
     ItemByBranchComponent,
     MyCartComponent,
     BranchItemManageComponent,
-    UpdateOrderStatusComponent
+    UpdateOrderStatusComponent,
+    CardAddComponent
   ],
   imports: [
     BrowserModule,
@@ -94,6 +98,8 @@ import { UpdateOrderStatusComponent } from './admin/update-order-status/update-o
     MatSortModule,
     MatSelectModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
 
 
   ],
