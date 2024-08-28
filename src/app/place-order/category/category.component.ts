@@ -21,7 +21,7 @@ export class CategoryComponent implements OnInit{
   }
 
   getAllCategory(){
-    this.categoryService.getAll().subscribe(
+    this.categoryService.getAllActive().subscribe(
       (data:any)=>{
         this.category = data;
         this.showCategoryOneByOne();

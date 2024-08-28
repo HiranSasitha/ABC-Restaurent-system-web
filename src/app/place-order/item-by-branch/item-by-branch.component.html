@@ -37,6 +37,9 @@
 
 </div>
 <div class="mt-5 " style="overflow: auto; max-height: 700px" >
+  <div *ngIf="showItem.length===0" class="d-flex justify-content-center">
+  <h2 style="font-weight: bold"  class="t2">No Items </h2>
+  </div>
   <div class="row">
     <div class="col-lg-3 col-sm-6" *ngFor="let ite of showItem"  style="cursor: pointer" >
 

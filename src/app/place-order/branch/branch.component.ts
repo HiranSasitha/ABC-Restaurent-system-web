@@ -15,6 +15,7 @@ export class BranchComponent implements  OnInit{
   }
   ngOnInit(): void {
     this.getAllActiveBranches();
+    localStorage.removeItem('items');
   }
 
   getAllActiveBranches(){

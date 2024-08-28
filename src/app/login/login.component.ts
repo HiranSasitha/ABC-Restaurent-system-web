@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {UserService} from "../service/user.service";
 import {UserAuthService} from "../service/user-auth.service";
 import {Router} from "@angular/router";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-login',
@@ -17,19 +18,23 @@ export class LoginComponent {
 
     this.userService.logins(loginForm.value).subscribe(
       (response:any)=>{
-        console.log(response.jwtToken);
-        console.log(response.user.roles);
-        this.userAuthService.setRoles(response.user.roles);
-        this.userAuthService.setUser(response.user);
-        this.userAuthService.setToken(response.jwtToken);
-        const role = response.user.roles[0].roleName;
-        console.log(role);
+        if(response.user.isActive == true) {
+          console.log(response.jwtToken);
+          console.log(response.user.roles);
+          this.userAuthService.setRoles(response.user.roles);
+          this.userAuthService.setUser(response.user);
+          this.userAuthService.setToken(response.jwtToken);
+          const role = response.user.roles[0].roleName;
+          console.log(role);
 
           this.router.navigate(["/dashboard"])
-
+        }else {
+          Swal.fire("Failed", "Account is Deactivate", 'warning');
+        }
 
       },(error)=>{
         console.log(error);
+        Swal.fire("Failed", "User Name or Password Wrong", 'warning');
       }
     );
   }

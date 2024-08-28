@@ -34,4 +34,10 @@ export class CategoryService {
     return this.httpClient.get<any>(this.BASE_URL+"/get-all");
 
   }
+
+  public getAllActive(){
+
+    return this.httpClient.get<any>(this.BASE_URL+"/get-all-active");
+
+  }
 }
