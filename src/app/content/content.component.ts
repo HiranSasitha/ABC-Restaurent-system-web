@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuService } from 'src/app/service/menu.service';
 import {UserService} from "../service/user.service";
+import {UserAuthService} from "../service/user-auth.service";
 
 @Component({
   selector: 'app-content',
@@ -9,7 +10,7 @@ import {UserService} from "../service/user.service";
 })
 export class ContentComponent {
   opened = true;
-  constructor(private menuService:MenuService,public userService:UserService) {
+  constructor(private menuService:MenuService,public userService:UserService,private userAuth:UserAuthService) {
     this.menuService.isOpened.subscribe(data =>{
       this.opened = data;
     })
@@ -17,5 +18,9 @@ export class ContentComponent {
 
   closeSidebar() {
     this.menuService.toggle();  // Close the sidebar when a menu item is clicked
+  }
+
+  public isLogin() {
+    return this.userAuth.isLogin();
   }
 }

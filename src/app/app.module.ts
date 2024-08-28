@@ -38,6 +38,16 @@ import { BranchCreateComponent } from './admin/branch-manage/branch-create/branc
 import { BranchUpdateComponent } from './admin/branch-manage/branch-update/branch-update.component';
 import {UserManageComponent} from "./admin/user-manage/user-manage.component";
 import {UserCreateComponent} from "./admin/user-manage/user-create/user-create.component";
+import { BranchComponent } from './place-order/branch/branch.component';
+import { CategoryComponent } from './place-order/category/category.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { ItemByBranchComponent } from './place-order/item-by-branch/item-by-branch.component';
+import { MyCartComponent } from './place-order/my-cart/my-cart.component';
+import { BranchItemManageComponent } from './branch-admin/branch-item-manage/branch-item-manage.component';
+import { UpdateOrderStatusComponent } from './admin/update-order-status/update-order-status.component';
+import {CardAddComponent} from "./place-order/my-cart/card-add/card-add.component";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatCardModule} from "@angular/material/card";
 
 
 
@@ -62,7 +72,14 @@ import {UserCreateComponent} from "./admin/user-manage/user-create/user-create.c
     BranchCreateComponent,
     BranchUpdateComponent,
     UserManageComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    BranchComponent,
+    CategoryComponent,
+    ItemByBranchComponent,
+    MyCartComponent,
+    BranchItemManageComponent,
+    UpdateOrderStatusComponent,
+    CardAddComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +97,9 @@ import {UserCreateComponent} from "./admin/user-manage/user-create/user-create.c
     MatPaginatorModule,
     MatSortModule,
     MatSelectModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
 
 
   ],

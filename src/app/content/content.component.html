@@ -26,6 +26,23 @@
           <a class="aa" style="cursor: pointer" routerLink="/user">User Manage</a>
         </mat-list-item>
 
+        <mat-list-item *ngIf="userService.roleEqual(['ROLE_BRANCHADMIN'])" class="item" [routerLinkActive]="['active']" (click)="closeSidebar()" >
+          <mat-icon color="primary" >menu_book</mat-icon>
+          <a class="aa" style="cursor: pointer" routerLink="/branch-item-manage">Branch Item</a>
+        </mat-list-item>
+
+        <mat-list-item *ngIf="userService.roleEqual(['ROLE_BRANCHADMIN','ROLE_ADMIN'])" class="item" [routerLinkActive]="['active']" (click)="closeSidebar()" >
+          <mat-icon color="primary" >grade</mat-icon>
+          <a class="aa" style="cursor: pointer" routerLink="/order-status">Orders</a>
+        </mat-list-item>
+
+        <mat-list-item *ngIf="isLogin()" class="item" [routerLinkActive]="['active']" (click)="closeSidebar()" >
+          <mat-icon color="primary" >dinner_dining</mat-icon>
+          <a class="aa" style="cursor: pointer" routerLink="/active-branch">Place Order</a>
+        </mat-list-item>
+
+
+
       </mat-list>
 
     </mat-drawer>

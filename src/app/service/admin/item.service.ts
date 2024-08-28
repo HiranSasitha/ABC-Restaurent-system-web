@@ -46,4 +46,16 @@ export class ItemService {
 
     return this.httpClient.get<any>(url);
   }
+
+  getAllItemByBranchByItemByCategory(id:any,catId:any) {
+    const url = `${this.BASE_URL}/get-all-branch-by-item-by-category/${id}/${catId}`;
+
+    return this.httpClient.get<any>(url);
+  }
+
+  updateBranchByItemStatus(branchId:any,itemId:any,isActive:boolean) {
+    const url = `${this.BASE_URL}/update-branch-item-status/${branchId}/${itemId}/${isActive}`;
+
+    return this.httpClient.put<any>(url,"");
+  }
 }

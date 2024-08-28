@@ -1,10 +1,11 @@
-<div class="a">
-  <div class="container mb-5">
+<div class="a bg-body-secondary">
+  <div class="container mb-5 ">
     <div class="card text-center" style="padding: 20px; color:green;">
       <h1 class="font-weight-bold">Welcome to ABC Restaurant</h1>
     </div>
   </div>
-  <div class="container mt-5">
+  <div class="bg-body-secondary">
+  <div class="container mt-5 ">
     <div class="card" style="padding: 20px;">
       <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <!-- formmodule module -->
@@ -34,5 +35,8 @@
      <h4 class="mt-3 text-center" style="cursor: pointer" routerLink="/register">Create Account</h4>
     </div>
 
+    <app-pic-card/>
+
   </div>
+</div>
 </div>
