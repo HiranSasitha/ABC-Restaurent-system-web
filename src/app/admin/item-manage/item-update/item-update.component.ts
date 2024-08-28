@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
 import {UserAuthService} from "../../../service/user-auth.service";
 import {CategoryService} from "../../../service/admin/category.service";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
@@ -29,6 +29,7 @@ export class ItemUpdateComponent implements OnInit{
               private itemService:ItemService,
               @Inject(MAT_DIALOG_DATA) public data: any,
               private fb: FormBuilder,
+              private cdr: ChangeDetectorRef,
               public dialogRef: MatDialogRef<ItemUpdateComponent>) {
     this.userName = userAuth.getUser()?.userName;
     this.item = { ...data };
@@ -57,6 +58,7 @@ export class ItemUpdateComponent implements OnInit{
     this.selectedCategoryId = this.item.category.id;
     this.getAllBranch()
     this.getAllCategory()
+    this.loadBranchAndItem();
 
   }
 
@@ -74,15 +76,15 @@ export class ItemUpdateComponent implements OnInit{
       }
     )
   }
-  getAllBranch(){
+  async getAllBranch(){
 
-    this.branchService.getAll().subscribe(
-      (data:any)=>{
-        this.branch = data;
+    try {
+      const data = await this.branchService.getAll().toPromise();
+      this.branch = data;
+    } catch (error) {
+      console.error('Error', error);
+    }
 
-
-      }
-    )
   }
 
   toggleActiveClass(event: any) {
@@ -157,22 +159,28 @@ export class ItemUpdateComponent implements OnInit{
   }
 
 
-  getAllBranchByItem(){
+  async getAllBranchByItem(){
 
-    this.itemService.getAllBranchByItem(this.item.id).subscribe(
-      (data:any)=>{
-        let response = data;
+    try {
+      const data = await this.itemService.getAllBranchByItem(this.item.id).toPromise();
+      this.selectedBranchIds = data.map((item: any) => item.branch.id);
+      console.info(this.selectedBranchIds);
+    } catch (error) {
+      console.error(error);
+    }
 
-        for (let item of response){
-          this.selectedBranchIds.push(item.branch.id);
-        }
-
-
-        console.log(this.selectedBranchIds);
-
-      }
-    )
+    
   }
 
 
+  private loadBranchAndItem() {
+    this.getAllBranch().then(() => {
+
+      this.getAllBranchByItem().then(() => {
+
+        this.itemForm.patchValue({ branchIds: this.selectedBranchIds });
+        this.cdr.detectChanges();
+      });
+    });
+  }
 }
