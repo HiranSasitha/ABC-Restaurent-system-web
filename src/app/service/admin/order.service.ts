@@ -39,4 +39,10 @@ export class OrderService {
 
     return this.httpClient.get<any>(url);
   }
+
+  getAllOrderByUser(userName:string) {
+    const url = `${this.BASE_URL}/get-orders-by-user/${userName}`;
+
+    return this.httpClient.get<any>(url);
+  }
 }
