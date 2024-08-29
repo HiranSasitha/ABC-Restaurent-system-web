@@ -169,7 +169,7 @@ export class ItemUpdateComponent implements OnInit{
       console.error(error);
     }
 
-    
+
   }
 
 

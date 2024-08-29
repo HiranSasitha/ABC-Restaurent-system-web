@@ -62,36 +62,62 @@
 <hr class="mt-2 mb-3"/>
 
 
-<div *ngIf="itemWithQty.length>0" class="d-flex justify-content-center" style="overflow: auto; max-height: 300px">
+<div *ngIf="itemWithQty.length>0" class="d-flex justify-content-center" style="overflow: auto; max-height:300px">
   <div class="card" style="width: 50rem;">
     <div class="card-body">
       <h2 style="color: darkolivegreen; font-weight: bold;">place order</h2>
-      <label>Select a Payment Method</label>
+      <label>Select a order method</label>
 
       <mat-form-field class="flex-fill ms-3" appearance="outline">
+        <mat-label>Select an order method</mat-label>
+        <mat-select [(ngModel)]="orderMethod" name="orderMethod">
+          <mat-option value="Delivery">
+            Delivery
+          </mat-option>
+          <mat-option [disabled]="availableSeats === 0" value="Reservation">
+            Reservation
+          </mat-option>
+          <mat-option value="Pick up">
+            Pick up
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <label class="m-2" *ngIf="orderMethod === 'Reservation'">Available Seat ({{availableSeats}})</label>
+
+      <mat-form-field *ngIf="orderMethod === 'Reservation'" class="flex-fill ms-3" appearance="outline">
+        <mat-label>Select number of seats</mat-label>
+        <mat-select [(ngModel)]="bookingSeats" name="bookingSeats">
+          <mat-option *ngFor="let i of seatOptions" [value]="i">
+            {{ i }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br/>
+      <label class="mt-3">Select a Payment Method</label>
+
+      <mat-form-field class="flex-fill ms-3 mt-3" appearance="outline">
         <mat-label>Select a payment method</mat-label>
         <mat-select [(ngModel)]="paymentType" name="paymentType" >
           <mat-option value="Card Payment">
             Card Payment
           </mat-option>
-          <mat-option value="COD">
-            COD
-          </mat-option>
-          <mat-option value="Pick up" >
-          Pick up
+          <mat-option value=" COD/OnTime Pay">
+            COD/OnTime Pay
           </mat-option>
         </mat-select>
       </mat-form-field>
       <div *ngIf="isLoadingData" class="loading-container d-flex justify-content-center">
-      <mat-spinner diameter="70" class="inline-spinner"></mat-spinner>
+      <mat-spinner diameter="60" class="inline-spinner"></mat-spinner>
       &nbsp;&nbsp;
       <small class="font-sm inline-text">Processing...</small>
     </div>
-      <h3 class="m-4" style="font-weight: bold">Total : Rs. {{total}} /=</h3>
-
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-between align-items-center m-4">
+        <h3 style="font-weight: bold; margin: 0;">Total : Rs. {{total}} /=</h3>
         <button class="btn btn-outline-success" (click)="saveOrder()">Place Order</button>
       </div>
+
     </div>
   </div>
 </div>

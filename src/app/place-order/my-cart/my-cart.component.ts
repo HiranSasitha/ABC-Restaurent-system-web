@@ -24,6 +24,10 @@ export class MyCartComponent implements OnInit{
   total = 0;
   userName:any
   isLoadingData = false;
+  availableSeats = -1;
+  orderMethod = "Delivery";
+  bookingSeats = 5;
+  seatOptions :number[]=[];
 
   constructor(private router: Router,private userService:UserAuthService,private dialog: MatDialog,private branchService:BranchService,private orderService:OrderService) {
   }
@@ -41,6 +45,7 @@ export class MyCartComponent implements OnInit{
       quantity: item.quantity !== undefined ? item.quantity : 1
     }));
 
+    this.getAvailableSeats();
 
     this.getTotal();
 
@@ -94,6 +99,10 @@ export class MyCartComponent implements OnInit{
   }
 
   saveOrder() {
+
+    if(this.orderMethod != "Reservation"){
+      this.bookingSeats = -1;
+    }
     const orderItemDtos = this.itemWithQty.map((item: any) => ({
       itemId: item.id,
       qty: item.quantity,
@@ -104,6 +113,9 @@ export class MyCartComponent implements OnInit{
       payOption: this.paymentType,
       branchId: this.selectedBranch.id,
       orderItemDtos: orderItemDtos,
+      orderOption:this.orderMethod,
+      bookingSeat:this.bookingSeats
+
     };
 
 
@@ -146,6 +158,22 @@ export class MyCartComponent implements OnInit{
         Swal.fire("Failed", "Something Wrong", 'warning');
       }
     );
+  }
+
+  getAvailableSeats(){
+
+    this.orderService.getAvailableSeat(this.selectedBranch.id).subscribe(
+      (data:any)=>{
+        this.availableSeats = data;
+        this.getSeatOptions();
+      }
+    )
+  }
+
+  getSeatOptions() {
+    for (let i = 5; i <= this.availableSeats; i += 5) {
+      this.seatOptions.push(i);
+    }
   }
 
 }

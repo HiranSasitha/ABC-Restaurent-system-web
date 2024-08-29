@@ -12,7 +12,7 @@ import {OrderService} from "../../service/admin/order.service";
 })
 export class UpdateOrderStatusComponent implements OnInit{
 
-  displayedColumns: string[] = ['order id', 'date', 'branch','customer', "payment type","status",'action'];
+  displayedColumns: string[] = ['order id', 'date', 'branch','customer', "order type","payment type","status",'action'];
   public pageSize = 5;
   public currentPage = 0;
   public totalSize = 0;

@@ -33,4 +33,10 @@ export class OrderService {
   placeOrder(data:any) {
     return this.httpClient.post<any>(`${this.BASE_URL}/create`,data);
   }
+
+  getAvailableSeat(branchId:number) {
+    const url = `${this.BASE_URL}/get-available-seat/${branchId}`;
+
+    return this.httpClient.get<any>(url);
+  }
 }

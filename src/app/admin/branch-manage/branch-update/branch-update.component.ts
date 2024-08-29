@@ -19,6 +19,7 @@ export class BranchUpdateComponent implements OnInit {
   branch: any;
   branchForm: FormGroup;
   selectedItemIds: number[] = [];
+  seat = 10;
 
   constructor(private userAuth: UserAuthService,
               private categoryService: CategoryService,
@@ -39,6 +40,7 @@ export class BranchUpdateComponent implements OnInit {
     });
 
     this.isActive = this.branch.isActive;
+    this.seat = this.branch.seat;
   }
 
   ngOnInit(): void {
@@ -93,6 +95,7 @@ export class BranchUpdateComponent implements OnInit {
         isActive: this.isActive,
         itemId: this.selectedItemIds,
         createdUser: this.userName,
+        seat:this.seat
       };
 
       Swal.fire({

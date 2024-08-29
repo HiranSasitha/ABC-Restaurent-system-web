@@ -19,8 +19,11 @@
     <!-- Description Column -->
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
-      <td mat-cell *matCellDef="let element">{{ element.order.createdDate }}</td>
+      <td mat-cell *matCellDef="let element">
+        {{ element.order.createdDate | date:'yyyy-MM-dd' }}
+      </td>
     </ng-container>
+
 
     <ng-container matColumnDef="branch">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Branch</th>
@@ -31,6 +34,17 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer</th>
       <td mat-cell *matCellDef="let element">{{ element.order.userEntity.userName }}</td>
     </ng-container>
+
+    <ng-container matColumnDef="order type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Type</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.order.orderOption }}
+        <ng-container *ngIf="element.order.bookingSeat != null">
+          <p>Booking Seats: {{ element.order.bookingSeat }}</p>
+        </ng-container>
+      </td>
+    </ng-container>
+
 
     <ng-container matColumnDef="payment type">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Payment Method</th>

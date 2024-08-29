@@ -18,6 +18,7 @@ export class BranchCreateComponent implements OnInit{
   userName:any
   selectedItemIds: number[] = [];
   item:any
+  seat = 10;
   constructor(private userAuth:UserAuthService,private categoryService:CategoryService,
               private dialog:MatDialog,
               private itemService:ItemService,
@@ -46,6 +47,7 @@ export class BranchCreateComponent implements OnInit{
         isActive: this.isActive,
         itemId:this.selectedItemIds,
         createdUser: this.userName,
+        seat: this.seat
 
       };
 
