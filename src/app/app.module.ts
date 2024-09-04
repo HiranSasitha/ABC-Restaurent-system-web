@@ -48,6 +48,7 @@ import { UpdateOrderStatusComponent } from './admin/update-order-status/update-o
 import {CardAddComponent} from "./place-order/my-cart/card-add/card-add.component";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCardModule} from "@angular/material/card";
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 
 
@@ -79,7 +80,8 @@ import {MatCardModule} from "@angular/material/card";
     MyCartComponent,
     BranchItemManageComponent,
     UpdateOrderStatusComponent,
-    CardAddComponent
+    CardAddComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule,
