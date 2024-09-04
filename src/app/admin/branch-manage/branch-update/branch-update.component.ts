@@ -100,7 +100,7 @@ export class BranchUpdateComponent implements OnInit {
 
       Swal.fire({
         title: 'Update Branch',
-        text: 'Are you sure, you want to Update this Item?',
+        text: 'Are you sure, you want to Update this Branch?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',

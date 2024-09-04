@@ -111,7 +111,7 @@ export class ItemUpdateComponent implements OnInit{
 
       Swal.fire({
         title: 'Update Item',
-        text: 'Are you sure, you want to Update this tem ?',
+        text: 'Are you sure, you want to Update this Item ?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',

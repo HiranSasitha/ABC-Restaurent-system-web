@@ -68,8 +68,8 @@ export class BranchItemManageComponent implements OnInit{
 
     if (isActive === false) {
       Swal.fire({
-        title: 'Update to the User Status',
-        text: 'Are you sure, you want to Deactivate the user?',
+        title: 'Update to the Item Status',
+        text: 'Are you sure, you want to Deactivate the Item?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
@@ -94,8 +94,8 @@ export class BranchItemManageComponent implements OnInit{
 
     if (isActive === true) {
       Swal.fire({
-        title: 'Update to the User Status',
-        text: 'Are you sure, you want to Activate the user?',
+        title: 'Update to the Item Status',
+        text: 'Are you sure, you want to Activate the Itemr?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
