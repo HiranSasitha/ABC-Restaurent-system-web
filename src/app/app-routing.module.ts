@@ -19,6 +19,7 @@ import {MyOrdersComponent} from "./my-orders/my-orders.component";
 
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent},
+  { path: "", redirectTo: "/dashboard", pathMatch: "full" },
   {path:"login",component:LoginComponent},
   {path:"register",component:UserRegisterComponent},
   {path:"category",component:CategoryManageComponent,canActivate:[AuthGuard],data:{roles:['ROLE_ADMIN']}},
