@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {CategoryCreateComponent} from "./category-create/category-create.component";
 import {MatTableDataSource} from "@angular/material/table";
@@ -97,4 +97,13 @@ export class CategoryManageComponent implements OnInit{
       }
     });
   }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.altKey && event.key.toLowerCase() === 'c') {
+      event.preventDefault();  // Optional: prevent default behavior
+      this.createCategory();   // Call the method
+    }
+  }
+
 }
